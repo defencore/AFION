@@ -61,3 +61,26 @@ Network  --->
 ```
 % make package/kismet/compile LDFLAGS="-L/root/openwrt/staging_dir/target-mips_24kc_musl/usr/lib" CFLAGS="-I/root/openwrt/staging_dir/target-mips_24kc_musl/usr/include" V=s -j$(nproc)
 ```
+
+${\textsf{\color{red}There was a problem during compilation that was randomly resolved}}$
+
+```
+Package kismet is missing dependencies for the following libraries:
+libcrypto.so.1.1
+libssl.so.1.1
+make[2]: *** [Makefile:89: /root/openwrt/bin/packages/mips_24kc/base/kismet_2023-07-R1-1_mips_24kc.ipk] Error 1
+make[2]: Leaving directory '/root/openwrt/package/kismet-openwrt/kismet'
+time: package/kismet-openwrt/kismet/compile#1534.18#110.33#1597.90
+    ERROR: package/kismet-openwrt/kismet failed to build.
+make[1]: *** [package/Makefile:116: package/kismet-openwrt/kismet/compile] Error 1
+make[1]: Leaving directory '/root/openwrt'
+make: *** [/root/openwrt/include/toplevel.mk:230: package/kismet/compile] Error 2
+```
+
+```
+% mkdir -p /usr/local/ssl
+% cp ./staging_dir/target-mips_24kc_musl/root-ath79/usr/lib/libcrypto.so.1.1 /usr/local/ssl/
+% cp ./staging_dir/target-mips_24kc_musl/root-ath79/usr/lib/libssl.so.1.1 /usr/local/ssl/
+```
+${\textsf{\color{red}The problem may be related to the Makefile of Kismet. We'll have to figure this out next time.
+Problem while assembling IPK package}}$
