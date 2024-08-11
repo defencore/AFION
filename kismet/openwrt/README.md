@@ -33,6 +33,7 @@ Target Profile (GL.iNet GL-E750)  --->
 
 
 # Compile Kismet for GL.iNet GL-E750 MUDI
+![image](https://github.com/user-attachments/assets/f05879e0-6fe2-47b2-9ae0-07ceee73239c)
 
 `Base firmware: OpenWrt 22.03.4, ARCH=mips_24kc, TARGET=ath79/nand`
 
